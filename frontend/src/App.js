@@ -1,9 +1,29 @@
 import './App.css';
+import React from 'react';
+import {Container} from "react-bootstrap";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Homescreen from "./screens/HomeScreen";
+import ProductScreen from "./screens/ProductScreen";
+import { BrowserRouter,Route,Routes } from "react-router-dom";
 
-function App() {
+
+const  App=()=> {
   return (
     <>
-      <h1>Welcome To Groshop</h1>
+    <BrowserRouter>
+    <Header />
+          <main>
+            <Container>
+              <Routes>
+                <Route path="/"  element= {<Homescreen />} />
+                <Route path="/product/:id"  element= {<ProductScreen />} />
+              </Routes>
+            </Container>
+          </main> 
+      <Footer />
+    </BrowserRouter>
+    
     </>
   );
 }
